@@ -1,0 +1,28 @@
+
+
+.navigation-bar{
+    margin-bottom: 7rem;
+}
+
+.margin-bot {
+  margin-bottom: 7rem;
+}
+
+.form-label{
+  text-align: left;
+}
+
+.sign-text {
+  font-size: xx-large;
+}
+
+.packet-card {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+.container-styles {
+  padding: 20px;
+  border-radius: 15px;
+  background-color: lightgray;
+}
