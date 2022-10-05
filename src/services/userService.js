@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let localhostURL = "http://localhost:8080";
+//let localhostURL = "http://localhost:8080";
 let herakuURL = "https://packet-demo.herokuapp.com/";
 
 export default class PacketService{
