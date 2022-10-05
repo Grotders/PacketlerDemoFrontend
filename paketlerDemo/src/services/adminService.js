@@ -1,8 +1,11 @@
 import axios from "axios";
 
+let localhostURL = "http://localhost:8080";
+let herakuURL = "https://packet-demo.herokuapp.com/";
+
 export default class PacketService{
     addPacket(packet) {
-        return axios.post("http://localhost:8080/api/admins/addPacket", 
+        return axios.post(herakuURL + "/api/admins/addPacket", 
             {
               data: packet.data,
                minutes: packet.minutes,
@@ -14,14 +17,14 @@ export default class PacketService{
     }
 
     getPackets() {
-        return axios.get("http://localhost:8080/api/admins/getAllPackets");
+        return axios.get(herakuURL + "/api/admins/getAllPackets");
     }
     getPacketById(packetId) {
-        return axios.get("http://localhost:8080/api/admins/getByIdPacket?packetId="+packetId)
+        return axios.get(herakuURL + "/api/admins/getByIdPacket?packetId="+packetId)
     }
 
     updatePacket(packet) {
-        return axios.post("http://localhost:8080/api/admins/updatePacket?id=" + packet.packetId, 
+        return axios.post(herakuURL + "/api/admins/updatePacket?id=" + packet.packetId, 
         {
             data: packet.data,
             minutes: packet.minutes,
@@ -33,14 +36,14 @@ export default class PacketService{
     }
     
     deletePacket(packetId) {
-        return axios.post("http://localhost:8080/api/admins/deleteByPacketId?packetId=" + 
+        return axios.post(herakuURL + "/api/admins/deleteByPacketId?packetId=" + 
         packetId)
     }
 
 
 
     addUser(user) {
-        return axios.post("http://localhost:8080/api/admins/addUsers", {
+        return axios.post(herakuURL + "/api/admins/addUsers", {
             birthdate: user.birthdate,
             email: user.email,
             firstname: user.firstname,
@@ -49,13 +52,13 @@ export default class PacketService{
         })
     }
     getUsers() {
-        return axios.get("http://localhost:8080/api/admins/getAllUsers");
+        return axios.get(herakuURL + "/api/admins/getAllUsers");
     }
     getUsersById(userId) {
-        return axios.get("http://localhost:8080/api/admins/getByIdUser?userId="+userId)
+        return axios.get(herakuURL + "/api/admins/getByIdUser?userId="+userId)
     }
     updateUser(user) {
-        return axios.post("http://localhost:8080/api/admins/updateUser", {
+        return axios.post(herakuURL + "/api/admins/updateUser", {
             birthdate: user.birthdate,
             email: user.email,
             firstname: user.firstname,
@@ -68,7 +71,7 @@ export default class PacketService{
     }
 
     deleteUser(userId) {
-        return axios.post("http://localhost:8080/api/admins/deleteByUserId?userId=" +
+        return axios.post(herakuURL + "/api/admins/deleteByUserId?userId=" +
         userId)
     }
     
