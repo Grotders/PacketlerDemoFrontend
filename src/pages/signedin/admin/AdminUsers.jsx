@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import AdminService from "../../services/adminService";
+import AdminService from "../../services/AdminService";
 import { Link } from "react-router-dom";
 import { BsPencilSquare } from "react-icons/bs";
 import { Table, Row, Col } from "reactstrap";

@@ -1,4 +1,7 @@
 
+.hover-fix:hover {
+  color: inherit;
+}
 
 .navigation-bar{
     margin-bottom: 7rem;
@@ -25,4 +28,10 @@
   padding: 20px;
   border-radius: 15px;
   background-color: lightgray;
+}
+
+.page-style {
+  background-color: #cfe8fc;
+  margin: auto;
+  padding: 35px;
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from "react-bootstrap";
-import AdminService from "../../services/adminService"
+import AdminService from "../../../services/AdminService"
 import {
     Form,
     Row,
@@ -41,7 +41,6 @@ export default function PacketAdd() {
     <Container className="container-styles">
       <Form onSubmit={handleSubmit}>
         <Row>
-
           <Col md={6} className="mb-5">
             <InputGroup>
               <InputGroupText>Title:</InputGroupText>
@@ -67,7 +66,7 @@ export default function PacketAdd() {
           <Col md={4}>
             <InputGroup>
               <InputGroupText>Min:</InputGroupText>
-              <Input id="min" name="min" placeholder='minutes' type="text" onChange={handleChange}/>
+              <Input id="minutes" name="minutes" placeholder='minutes' type="text" onChange={handleChange}/>
             </InputGroup>
           </Col>
           <Col md={4}>

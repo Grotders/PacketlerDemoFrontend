@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import AdminService from "../../services/adminService";
+import AdminService from "../../services/AdminService";
 import {
   Form,
   Row,

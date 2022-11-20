@@ -7,7 +7,7 @@ import {
   Table,
 } from "reactstrap";
 
-import AdminService from "../../services/adminService";
+import AdminService from "../../services/AdminService";
 
 export default function AdminPackets() {
   const [packets, setPackets] = useState([]);

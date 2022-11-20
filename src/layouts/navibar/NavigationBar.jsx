@@ -1,35 +1,50 @@
-import React, {useState} from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { NavLink } from 'react-router-dom';
-import SignedIn from './SignedIn';
-import SignedOut from './SignedOut';
+import React, { Component } from 'react'
+import { AppBar, Button, Box, Toolbar, Typography} from "@mui/material";
+import SignedOut from "./components/SignedOut";
+import SignedIn from "./components/SignedIn";
 
-export default function NavigationBar() {
-const [isAuthenticated, setIsAuthenticatated] = useState(() => {
-    return !!JSON.parse(localStorage.getItem("isAuth"));
-  });
+import { NavLink } from "react-router-dom";
 
 
-  function handleSignOut(params) {
-    setIsAuthenticatated(false);
-    window.localStorage.setItem('isAuth', "false");
+export default class NavigationBar extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    
+
+  render() {
+    let auth = this.props.auth;
+    return (
+        <Box sx={{ flexGrow: 1, marginBottom: 8 }}>
+        
+        <AppBar position="static">
+          <Toolbar>
+            <Typography
+              className="hover-fix"
+              component={NavLink}
+              to="/"
+              noWrap
+              variant="h6"
+              xs={8}
+              sx={{
+                color: "white",
+                fontFamily: "monospace",
+                fontWeight: 550,
+                marginRight: "30px",
+                textDecoration: "none",
+              }}
+            >
+              OguzCELL
+            </Typography>
+            
+
+            {console.log("Auth: " + auth)}
+            {auth ? <SignedIn signOut={this.props.signOut}/> : <SignedOut />}
+          </Toolbar>
+        </AppBar>
+      </Box>
+    )
   }
-  function handleSignIn(params) {
-    setIsAuthenticatated(true);
-    window.localStorage.setItem('isAuth', "true");
-  }
-
-  return (
-    <Navbar bg="light" variant="light" className='navigation-bar'>
-        <Container>
-          <Navbar.Brand as={NavLink} to="/">OguzCELL</Navbar.Brand>
-          <Nav.Link as={NavLink} to='/admin'>Admin</Nav.Link>
-          <Nav className="ms-auto">
-          {isAuthenticated?<SignedIn signOut={handleSignOut}/>:<SignedOut signIn={handleSignIn}/>}
-          </Nav>
-        </Container>
-      </Navbar>
-  )
 }
+

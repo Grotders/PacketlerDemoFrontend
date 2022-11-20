@@ -9,7 +9,7 @@ import {
     Button,
     InputGroup,
   } from "reactstrap";
-import AdminService from "../../services/adminService"
+import AdminService from "../../services/AdminService"
 
 export default function UserAdd() {
     const [formValue, setformValue] = React.useState({

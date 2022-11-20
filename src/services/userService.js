@@ -1,15 +1,16 @@
 import axios from "axios";
 
-//let localhostURL = "http://localhost:8080";
-let herakuURL = "https://packet-demo.herokuapp.com/";
+let localhostURL = "http://localhost:8080";
+let apiURL = "/api/customers";
+//let herakuURL = "https://packet-demo.herokuapp.com/";
 
-export default class PacketService{
+export default class UserService{
     getPackets() {
-        return axios.get(herakuURL + "/api/users/getPackets");
+        return axios.get(localhostURL + apiURL + "/getPackets");
     }
 
     login(user) {
-        return axios.post(herakuURL + "/api/users/login", {
+        return axios.post(localhostURL +  apiURL + "/login", {
             email: user.email,
             password: user.password
         });

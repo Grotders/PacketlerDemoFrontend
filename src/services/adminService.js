@@ -1,11 +1,11 @@
 import axios from "axios";
 
-//let localhostURL = "http://localhost:8080";
-let herakuURL = "https://packet-demo.herokuapp.com/";
+let localhostURL = "http://localhost:8080";
+let apiURL = "/api/admins";
 
-export default class PacketService{
+export default class AdminService{
     addPacket(packet) {
-        return axios.post(herakuURL + "/api/admins/addPacket", 
+        return axios.post(localhostURL + apiURL + "/addPacket?adminFullName=Admin/Oguzcan", 
             {
               data: packet.data,
                minutes: packet.minutes,
@@ -17,14 +17,14 @@ export default class PacketService{
     }
 
     getPackets() {
-        return axios.get(herakuURL + "/api/admins/getAllPackets");
+        return axios.get(localhostURL + apiURL + "/getAllPackets");
     }
     getPacketById(packetId) {
-        return axios.get(herakuURL + "/api/admins/getByIdPacket?packetId="+packetId)
+        return axios.get(localhostURL + apiURL + "/getByIdPacket?packetId="+packetId)
     }
 
     updatePacket(packet) {
-        return axios.post(herakuURL + "/api/admins/updatePacket?id=" + packet.packetId, 
+        return axios.post(localhostURL + apiURL + "/updatePacket?id=" + packet.packetId, 
         {
             data: packet.data,
             minutes: packet.minutes,
@@ -36,14 +36,14 @@ export default class PacketService{
     }
     
     deletePacket(packetId) {
-        return axios.post(herakuURL + "/api/admins/deleteByPacketId?packetId=" + 
+        return axios.post(localhostURL + apiURL + "/deleteByPacketId?packetId=" + 
         packetId)
     }
 
 
 
     addUser(user) {
-        return axios.post(herakuURL + "/api/admins/addUsers", {
+        return axios.post(localhostURL + apiURL + "/addCustomer?adminFullName=Admin/Oguzcan", {
             birthdate: user.birthdate,
             email: user.email,
             firstname: user.firstname,
@@ -52,26 +52,26 @@ export default class PacketService{
         })
     }
     getUsers() {
-        return axios.get(herakuURL + "/api/admins/getAllUsers");
+        return axios.get(localhostURL + apiURL + "/getAllCustomers");
     }
     getUsersById(userId) {
-        return axios.get(herakuURL + "/api/admins/getByIdUser?userId="+userId)
+        return axios.get(localhostURL + apiURL + "/getByIdCustomer?userId="+userId)
     }
     updateUser(user) {
-        return axios.post(herakuURL + "/api/admins/updateUser", {
+        console.log(user);
+        return axios.post(localhostURL + apiURL + "/updateCustomer", {
+            address: user.address,
             birthdate: user.birthdate,
             email: user.email,
             firstname: user.firstname,
             lastname: user.lastname,
-            userId: user.userId,
-            packetId: user.userId,
             password: user.password,
-            packetName: user.packetName
+            userId: user.userId
         })
     }
 
     deleteUser(userId) {
-        return axios.post(herakuURL + "/api/admins/deleteByUserId?userId=" +
+        return axios.post(localhostURL + apiURL + "/deleteCustomerByUserId?userId=" +
         userId)
     }
     
